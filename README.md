@@ -1,7 +1,11 @@
 # Private docker-registry
 
-This repository contains all files for running a private docker registry. You need docker and docker-compose for running these.
+This repository contains all files for running a private docker registry. You need docker and [docker-compose](https://docs.docker.com/compose/install/) for running these
 
-Just run 
+Place the certificate for the nginx to ./nginx/ssl/docker-registry.crt and ./nginx/ssl/docker-registry.key. You can add user accounts with 
+
+    htpasswd ./nginx/conf/docker-registry.htpasswd $user
+
+To start up run 
 
     docker-compose up
