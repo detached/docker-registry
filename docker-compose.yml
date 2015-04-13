@@ -1,0 +1,18 @@
+httpsProxy:
+  image: nginx
+  ports:
+    - "443:443"
+  volumes:
+    - ./nginx/conf/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    - ./nginx/conf/docker-registry.conf:/etc/nginx/docker-registry.conf
+    - ./nginx/conf/docker-registry.htpasswd:/etc/nginx/docker-registry.htpasswd
+    - ./nginx/ssl/docker-registry.crt:/etc/ssl/certs/docker-registry
+    - ./nginx/ssl/docker-registry.key:/etc/ssl/private/docker-registry
+  links:
+    - registry
+registry:
+  image: registry
+  expose:
+    - "5000"
+  volumes:
+    - ./registry/:/tmp/registry
