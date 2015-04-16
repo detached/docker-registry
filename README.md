@@ -5,6 +5,8 @@ This repository contains all files for running a private docker registry. You ne
 Place the certificate for the nginx to ./nginx/ssl/docker-registry.crt and ./nginx/ssl/docker-registry.key. You can add user accounts with 
 
     htpasswd ./nginx/conf/docker-registry.htpasswd $user
+    
+Replace the %HOST% variable in the nginx.conf to fitt your hostname.
 
 To start up run 
 
